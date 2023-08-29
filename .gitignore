@@ -169,4 +169,7 @@ postgres_data/
 # rasa
 ########################################################################################
 rasa/.rasa
+rasa/.config
+rasa/.keras
+rasa/models
 rasa/.bash_history

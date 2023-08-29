@@ -1,0 +1,39 @@
+version: '3.0'
+
+services:
+
+  rasa-db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=rasa
+      - POSTGRES_USER=rasa
+      - POSTGRES_PASSWORD=rasa
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+  rasa-app:
+    image: rasa/rasa:3.8.0a1-full
+    networks: ['rasa-network']
+    ports:
+    - "5005:5005"
+    volumes:
+    - "./rasa/:/app/"
+    command:
+      - "run"
+      - "--enable-api"
+      - "--cors"
+      - "*"
+      - "--debug"
+    depends_on:
+      - rasa-db
+
+  rasa_action:
+    image: rasa/rasa-sdk:3.8.0a1
+    networks: ['rasa-network']
+    ports:
+    - "5055:5055"
+    volumes:
+    - "./rasa/actions:/app/actions"
+
+networks: {rasa-network: {}}

@@ -11,13 +11,13 @@ docker run -v $(pwd)/rasa:/app rasa/rasa:3.8.0a1-full init --no-prompt
 
 
 # talk bot      
-docker run -it -v $(pwd)/rasa:/app rasa/rasa:3.8.0a1-full shell debug
+docker run -it -v $(pwd)/rasa:/app rasa/rasa:3.8.0a1-full shell
 
 # Train model
 docker run -v $(pwd)/rasa:/app rasa/rasa:3.8.0a1-full train --domain domain.yml --data data --out models
 
-# Enable API
-docker run -v $(pwd)/rasa:/app rasa/rasa:3.8.0a1-full --enable-api --cors "*"
+# Run Rasa  
+docker run -v $(pwd)/rasa:/app rasa/rasa:3.8.0a1-full x
 
 
 # Inside container

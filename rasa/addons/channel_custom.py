@@ -16,7 +16,7 @@ class CustomBot(OutputChannel):
         return "custom"
 
     def __init__(self, user, password, server_url):
-        from .lib.customChat import CustomChat
+        from .customlib.customChat import CustomChat
         logger.info("__init__  custom chat")
         self.customChat = CustomChat(user, password, server_url=server_url)
 

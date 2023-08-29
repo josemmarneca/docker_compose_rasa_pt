@@ -1,5 +1,5 @@
-from addons.lib.customBase import CustomBase
-from addons.lib.customException import CustomMissingParamException
+from addons.customlib.customBase import CustomBase
+from addons.customlib.customException import CustomMissingParamException
 
 
 class CustomChat(CustomBase):
